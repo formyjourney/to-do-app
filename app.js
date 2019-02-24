@@ -22,21 +22,11 @@ function onReady() {
 
     newToDoText.value ='';
 
-    let deleteButton = document.createELement('input');
+    let deleteButton = document.createElement('button');
+    deleteButton.innerHTML = '<span>Delete</span>';
 
-    let onClick = document.createAttribute("onclick");
-    onClick.value = "deleteButton(this)";
-
-    let type = document.createAttribute("type");
-    deleteButton.value = "button";
-
-    let inputValue = document.createAttribute("value");
-    inputValue.value = "Delete"
-
-    deleteButton.setAttributeNode(onclick);
-    deleteButton.setAttributeNode(type);
-    deleteButton.setAttributeNode(inputValue);
     newLi.appendChild(deleteButton);
+
 });
 }
 
