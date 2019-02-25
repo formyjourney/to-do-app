@@ -1,9 +1,9 @@
 function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
-  const newToDoText = document.getELementById('newToDoText');
+  const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
 
-   addToDoForm.addEventListener('submit', () => {
+  addToDoForm.addEventListener('submit', () => {
     event.preventDefault();
 
     let title = newToDoText.value;
@@ -18,28 +18,23 @@ function onReady() {
 
     newLi.appendChild(checkbox);
 
-    toDoList.appendChild(li);
+    toDoList.appendChild(newLi);
 
-    newToDoText.value = '';
+    newToDoText.value ='';
 
-    let deleteButton = document.createElement('input');
+    let deleteButton = document.createElement('button');
+    deleteButton.innerHTML = '<span>Delete</span>';
 
-    letonClick = document.createAttribute("onclick");
-    onClick.value ="deleteButton(this)";
-
-    let type = document.createAttribute("type");
-    type.value = "button";
-
-    let inputValue = document.createAttribute("value");
-
-    deleteButton.setAttributeNode(onClick);
-    deleteButton.setAttributeNode(type);
-    deleteButton.setAttributeNode(inputValue);
     newLi.appendChild(deleteButton);
 
-  });
+});
 }
 
 window.onload = function() {
   onReady();
 };
+
+function deleteButton(btn) {
+  var row = btn.parentNode;
+  row.parentNode.removeChild(row);
+}
