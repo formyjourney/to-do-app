@@ -5,8 +5,8 @@ function onReady() {
 }
 
 function createNewToDo() {
-7	    const newToDoText = document.getElementById('newToDoText');
-8	    if(!newToDoText.value) { return; }
+const newToDoText = document.getElementById('newToDoText');
+   if(!newToDoText.value) { return; }
 
       toDos.push ({
       title: newToDoText.value,
