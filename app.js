@@ -3,38 +3,31 @@ function onReady() {
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
 
-  addToDoForm.addEventListener('submit', () => {
+  addToDoForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
     let title = newToDoText.value;
 
     let newLi = document.createElement('li');
-
     let checkbox = document.createElement('input');
-
     checkbox.type = "checkbox";
+    
+    let deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    
+    deleteBtn.addEventListener('click', function(event){
+       toDoList.removeChild(this.parentElement);
+    })
 
     newLi.textContent = title;
-
-    newLi.appendChild(checkbox);
-
     toDoList.appendChild(newLi);
-
     newToDoText.value ='';
-
-    let deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<span>Delete</span>';
-
-    newLi.appendChild(deleteButton);
-
+    newLi.appendChild(checkbox);
+    newLi.appendChild(deleteBtn);
+    
 });
-}
+};
 
 window.onload = function() {
   onReady();
 };
-
-function deleteButton(btn) {
-  var row = btn.parentNode;
-  row.parentNode.removeChild(row);
-}
